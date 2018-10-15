@@ -28,3 +28,20 @@ no J-link, but st-link
 no Segger RTT, but a serial port (console)
 
 
+for info : 
+https://mynewt.apache.org
+
+
+I struggled (and gave up) to install it on raspberry pi
+I used : newt_1.4.1-1_amd64.deb
+
+
+
+No luck with BLE and bootloader, use the elf.bin binary
+
+
+TIP to check config :
+newt target config show thingy_my_sensor
+
+
+
