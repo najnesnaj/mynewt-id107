@@ -1,0 +1,3 @@
+target.app: "apps/kx022_in_timer"
+target.bsp: "@apache-mynewt-core/hw/bsp/nrf51dk"
+target.build_profile: "debug"

@@ -17,34 +17,21 @@
 # under the License.
 #
 
-pkg.name: hw/bsp/nrf51dk
-pkg.type: bsp
-pkg.description: BSP definition for the Nordic nRF51 DK SoC.
-pkg.author: "Apache Mynewt <dev@mynewt.apache.org>"
-pkg.homepage: "http://mynewt.apache.org/"
+pkg.name: "apps/kx022_in_timer"
+pkg.type: app
+pkg.description: "Description of your app"
+pkg.author: "You <you@you.org>"
+pkg.homepage: "http://your-url.org/"
 pkg.keywords:
-    - nrf51
-    - nrf51dk
-
-pkg.cflags:
-    - '-DNRF51'
 
 pkg.deps:
-    - hw/mcu/nordic/nrf51xxx
-    - libc/baselibc
+    - "@apache-mynewt-core/kernel/os"
+    - "@apache-mynewt-core/sys/console/full"
+    - "@apache-mynewt-core/sys/shell"
+    - "@apache-mynewt-core/sys/sysinit"
+    - "@apache-mynewt-core/sys/log/full"
+    - "@apache-mynewt-core/sys/stats/full"
+    - "@apache-mynewt-core/hw/sensor"
 
-pkg.deps.BLE_DEVICE:
-    - hw/drivers/nimble/nrf51
-
-pkg.deps.UART_0:
-    - hw/drivers/uart/uart_hal
-
-pkg.deps.UART_1:
-    - hw/drivers/uart/uart_bitbang
-
-pkg.deps.ADC_0:
-    - hw/drivers/adc/adc_nrf51
-pkg.deps.KX022_ONB: 
-    - hw/drivers/sensors/kx022
-pkg.init:
-    - config_kx022_sensor: 400
+pkg.req_apis:
+    - console

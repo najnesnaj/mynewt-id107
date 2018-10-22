@@ -6,7 +6,7 @@
 # to you under the Apache License, Version 2.0 (the
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
-#
+# 
 #  http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing,
@@ -17,34 +17,41 @@
 # under the License.
 #
 
-pkg.name: hw/bsp/nrf51dk
-pkg.type: bsp
-pkg.description: BSP definition for the Nordic nRF51 DK SoC.
+pkg.name: apps/sensors_test
+pkg.type: app
+pkg.description: "Example application which uses a variety of mynewt features."
 pkg.author: "Apache Mynewt <dev@mynewt.apache.org>"
 pkg.homepage: "http://mynewt.apache.org/"
 pkg.keywords:
-    - nrf51
-    - nrf51dk
-
-pkg.cflags:
-    - '-DNRF51'
 
 pkg.deps:
-    - hw/mcu/nordic/nrf51xxx
-    - libc/baselibc
+    - kernel/os
+    - hw/sensor
+    - boot/bootutil
+    - sys/console/full
+    - sys/log/full
+    - sys/stats/full
+    - hw/sensor/creator
+    - sys/reboot
+    - mgmt/newtmgr/transport/ble
+    - sys/id
+    - mgmt/imgmgr
+    - test/flash_test
+    - test/i2c_scan
 
-pkg.deps.BLE_DEVICE:
-    - hw/drivers/nimble/nrf51
+pkg.deps.SENSOR_OIC:
+   #- mgmt/oicmgr
 
-pkg.deps.UART_0:
-    - hw/drivers/uart/uart_hal
+pkg.deps.SENSOR_BLE:
+    - net/nimble/controller
+    - net/nimble/host
+    - net/nimble/host/services/gap
+    - net/nimble/host/services/gatt
+    - net/nimble/host/store/ram
+    - net/nimble/transport/ram
 
-pkg.deps.UART_1:
-    - hw/drivers/uart/uart_bitbang
+pkg.deps.CONFIG_NFFS:
+    - fs/nffs
 
-pkg.deps.ADC_0:
-    - hw/drivers/adc/adc_nrf51
-pkg.deps.KX022_ONB: 
-    - hw/drivers/sensors/kx022
-pkg.init:
-    - config_kx022_sensor: 400
+pkg.deps.CONFIG_FCB:
+    - fs/fcb

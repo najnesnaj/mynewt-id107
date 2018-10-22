@@ -1,0 +1,3 @@
+target.app: "apps/kx022_in_shell"
+target.bsp: "@apache-mynewt-core/hw/bsp/id107"
+target.build_profile: "debug"
