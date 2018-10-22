@@ -26,7 +26,7 @@ experimental I2C  KX022 accel sensor driver
 my setup is el-cheapo :
 no J-link, but st-link
 no Segger RTT, but a serial port (console)
-
+(so you have to solder tx, rx of the watch and connect it to serial port)
 
 for info : 
 https://mynewt.apache.org
@@ -37,7 +37,19 @@ I used : newt_1.4.1-1_amd64.deb
 
 
 
-No luck with BLE and bootloader, use the elf.bin binary
+No luck with BLE and bootloader: use the elf.bin binary
+The id107 smartwatch has only 256k flash memory
+
+After disactivating the log circular buffer setting in syscfg, bluetooth works!
+
+
+Current status : working acceleration-sensor (kx022)
+working OIC-server, android mynewt app can visualize the data! 
+
+TODO: si114x heart rate sensor
+
+
+
 
 
 TIP to check config :
