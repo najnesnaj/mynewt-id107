@@ -47,13 +47,24 @@ Current status : working acceleration-sensor (kx022)
 working OIC-server, android mynewt app can visualize the data! 
 
 TODO: si114x heart rate sensor
-
-
+- kx022 -- tap detection, and interrupt generation (detect movement during sleep)
+- si1143 disable the sensor (function is already there, but has to be called)
 
 
 
 TIP to check config :
 newt target config show thingy_my_sensor
 
+
+
+In this repo is a working bin : 
+id107_kx022_oic_test/app/apps/sensors_test/sensors_test.elf.bin
+
+By flashing it to the ID107HR smart watch, you can get a feel of mynewt
+
+there is an app : Mynewt Sensor Monitor which works with the sensors: 
+https://play.google.com/store/apps/details?id=io.runtime.sensoroic&hl=en_US
+
+and uses the OIC protocol to read/and visualize data from the sensors on the watch
 
 
