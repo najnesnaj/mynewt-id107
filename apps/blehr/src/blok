@@ -1,0 +1,17 @@
+	int
+stop_si1143_sensor(void)
+{
+
+	//this shuts off the green leds
+	struct sensor_itf *itf;
+	struct si1143 *si1143;
+	struct os_dev *dev;
+	dev = (struct os_dev *) os_dev_open("si1143_0", OS_TIMEOUT_NEVER, NULL);
+	si1143=(struct si1143 *)dev;
+	itf = SENSOR_GET_ITF(&(si1143->sensor));
+
+	si1143_enable(itf, 0);
+	os_dev_close(dev);
+	return 0;
+}
+
